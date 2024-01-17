@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB Calculator - Lab Number 1</title>
+    <!-- The tailwind CDN is designed for development purposes only, and is not the best choice for production.
+        Read more here: https://tailwindcss.com/docs/installation -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Example for dark theme styling when using the tailwind CDN -->
+    <style>
+        .calculator {
+            text-align: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #474748;
+            padding: 20px;
+            border: 2px solid #4f4141;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+        }
+
+        .button {
+            background-color: #00aba3;
+            float: left;
+            margin: 10px;
+            width: 100px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .operators {
+            background-color: #84a634;
+            float: left;
+            margin: 10px;
+            width: 50px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .operators:hover {
+            background-color: #45a049;
+        }
+
+
+
+    </style>
+</head>
+
+<body class="dark:text-white light:text-black">
+    <div class="calculator">
+        <h1 style="color: #ffffff; font-weight: bold;">WEB Simple Calculator</h1>
+        <div class="row">
+            <button class="button" onclick="appendCharacter('1')">1</button>
+            <button class="button" onclick="appendCharacter('2')">2</button>
+            <button class="button" onclick="appendCharacter('3')">3</button>
+            <button class="operators" onclick="appendCharacter('+')">+</button>
+        </div>
+        <div class="row">
+            <button class="button" onclick="appendCharacter('4')">4</button>
+            <button class="button" onclick="appendCharacter('5')">5</button>
+            <button class="button" onclick="appendCharacter('6')">6</button>
+            <button class="operators" onclick="appendCharacter('-')">-</button>
+        </div>
+        <div class="row">
+            <button class="button" onclick="appendCharacter('7')">7</button>
+            <button class="button" onclick="appendCharacter('8')">8</button>
+            <button class="button" onclick="appendCharacter('9')">9</button>
+            <button class="operators" onclick="appendCharacter('*')">*</button>
+        </div>
+        <div class="row">
+            <button class="button" onclick="appendCharacter('0')">0</button>
+            <button class="button" onclick="clearInput()">C</button>
+            <button class="button" onclick="calculateResult()">=</button>
+            <button class="operators" onclick="appendCharacter('/')">/</button>
+        </div>
+        <input type="text" id="result" readonly style="width: 100%; background-color: #b3c0c5;">
+    </div>
+
+    <!-- Special scripts for integration in MTW gallery - must be placed at the bottom of the HTML after your code -->
+    <script>
+        // Custom config for the MTW app 
+        const mtwAppConfig = {
+            border: true // App border in the MTW page                    
+        }
+
+        // Implement these functions in order to use private API        
+        const sendPrivateApiRequest = async () => {
+            // Your code here:
+            // sendRequestToParent({ cat: 'getAssets' })
+        }
+
+        const acceptPrivateApiResponse = async (data) => {
+            // Process received data here:
+            // console.log(data)
+        }
+
+        // Use this in order to send on document load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Your code here:
+            // sendRequestToParent({ method: 'getAssets' })
+        })
+
+    </script>
+    <script src="https://morethanwallet.com/appstore/index.js"></script>
+</body>
+
+</html>

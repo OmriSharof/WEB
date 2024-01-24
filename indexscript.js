@@ -18,7 +18,9 @@ function ln(){
 function plusMinus() {
     const resultInput = document.getElementById('result');
     const currentValue = parseFloat(resultInput.value);
-    resultInput.value = currentValue * -1;
+    if(!isNaN(currentValue)) {
+        resultInput.value = currentValue * -1;
+    }
 }
 // Adding decimal
 function addDot() {
@@ -114,7 +116,7 @@ function calculateSquare() {
 function calculateReciprocal() {
     const resultInput = document.getElementById('result');
     const currentValue = parseFloat(resultInput.value);
-    if (currentValue !== 0) {
+    if (!isNaN(currentValue) && currentValue !== 0) {
         resultInput.value = 1 / currentValue;
     } else {
         resultInput.value = 'Error';
@@ -124,7 +126,9 @@ function calculateReciprocal() {
 function absolute() {
     const resultInput = document.getElementById('result');
     const currentValue = parseFloat(resultInput.value);
-    resultInput.value = Math.abs(currentValue);
+    if(!isNaN(currentValue)) {
+        resultInput.value = Math.abs(currentValue);
+    }
 }
 // exp
 function calculateExponential() {

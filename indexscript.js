@@ -128,7 +128,9 @@ function absolute() {
 function calculateExponential() {
     const resultInput = document.getElementById('result');
     const currentValue = parseFloat(resultInput.value);
-    resultInput.value = Math.exp(currentValue);
+    if(!isNaN(currentValue)) {
+        resultInput.value = Math.exp(currentValue);
+    }
 }
 // x mod y
 function calculateMod() {

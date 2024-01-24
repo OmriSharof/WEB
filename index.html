@@ -3,91 +3,86 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- Ilya : View port for integration to the display we are using -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEB Calculator - Lab Number 1</title>
+    <title>WEB Calculator - Lab Number 2</title>
     <!-- The tailwind CDN is designed for development purposes only, and is not the best choice for production.
         Read more here: https://tailwindcss.com/docs/installation -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Example for dark theme styling when using the tailwind CDN -->
-    <style>
-        .calculator {
-            text-align: center;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #474748;
-            padding: 20px;
-            border: 2px solid #4f4141;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .row {
-            display: flex;
-            justify-content: center;
-            margin: 10px;
-        }
-
-        .button {
-            background-color: #00aba3;
-            float: left;
-            margin: 10px;
-            width: 100px;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .operators {
-            background-color: #84a634;
-            float: left;
-            margin: 10px;
-            width: 50px;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .button:hover {
-            background-color: #45a049;
-        }
-
-        .operators:hover {
-            background-color: #45a049;
-        }
-
-
-
-    </style>
+    <link rel="stylesheet" href="indexcss.css">
 </head>
 
 <body class="dark:text-white light:text-black">
     <div class="calculator">
-        <h1 style="color: #ffffff; font-weight: bold;">WEB Simple Calculator</h1>
+        <input type="text" id="result" readonly style="width: 100%; background-color: #161617;">
+        <script src="indexscript.js"></script>
+
         <div class="row">
-            <button class="button" onclick="appendCharacter('1')">1</button>
-            <button class="button" onclick="appendCharacter('2')">2</button>
-            <button class="button" onclick="appendCharacter('3')">3</button>
-            <button class="operators" onclick="appendCharacter('+')">+</button>
+            <button class="operators" onclick="NotDefined()">MC</button>
+            <button class="operators" onclick="NotDefined()">MR</button>
+            <button class="operators" onclick="NotDefined()">M+</button>
+            <button class="operators" onclick="NotDefined()">M-</button>
+            <button class="operators" onclick="NotDefined()">MS</button>
+            <button class="operators" onclick="NotDefined()">M</button>
         </div>
+
         <div class="row">
-            <button class="button" onclick="appendCharacter('4')">4</button>
-            <button class="button" onclick="appendCharacter('5')">5</button>
-            <button class="button" onclick="appendCharacter('6')">6</button>
-            <button class="operators" onclick="appendCharacter('-')">-</button>
+            <button class="operators" onclick="NotDefined()">2nd</button>
+            <button class="operators" onclick="pi()">π</button>
+            <button class="operators" onclick="e()">e</button>
+            <button class="operators" onclick="clearDisplay()">C</button>
+            <button class="operators" onclick="deleteLastFromScreen()">⌫</button> 
         </div>
+
         <div class="row">
+            <button class="operators" onclick="calculateSquare()">x²</button>
+            <button class="operators" onclick="calculateReciprocal()">1/x</button>
+            <button class="operators" onclick="absolute()">|x|</button>
+            <button class="operators" onclick="calculateExponential()">exp</button>
+            <button class="operators" onclick="calculateMod()">mod</button>
+        </div>
+
+        <div class="row">
+            <button class="operators" onclick="secondRoot()">²√x</button>
+            <button class="operators" onclick="addParenthesis2()">(</button>
+            <button class="operators" onclick="addParenthesis1()">)</button>
+            <button class="operators" onclick="calculateFactorial()">n!</button>
+            <button class="operators" onclick="appendCharacter('/')">/</button>
+        </div>
+
+        <div class="row">
+            <button class="operators" onclick="powxy()">x<sup>y</sup></button>
             <button class="button" onclick="appendCharacter('7')">7</button>
             <button class="button" onclick="appendCharacter('8')">8</button>
             <button class="button" onclick="appendCharacter('9')">9</button>
             <button class="operators" onclick="appendCharacter('*')">*</button>
         </div>
+
         <div class="row">
-            <button class="button" onclick="appendCharacter('0')">0</button>
-            <button class="button" onclick="clearInput()">C</button>
-            <button class="button" onclick="calculateResult()">=</button>
-            <button class="operators" onclick="appendCharacter('/')">/</button>
+            <button class="operators" onclick="appendCharacter('10^')">10<sup>x</sup></button>
+            <button class="button" onclick="appendCharacter('4')">4</button>
+            <button class="button" onclick="appendCharacter('5')">5</button>
+            <button class="button" onclick="appendCharacter('6')">6</button>
+            <button class="operators" onclick="appendCharacter('-')">-</button>
         </div>
-        <input type="text" id="result" readonly style="width: 100%; background-color: #b3c0c5;">
+
+        <div class="row">
+            <button class="operators" onclick="log()">log</button>
+            <button class="button" onclick="appendCharacter('1')">1</button>
+            <button class="button" onclick="appendCharacter('2')">2</button>
+            <button class="button" onclick="appendCharacter('3')">3</button>
+            <button class="operators" onclick="appendCharacter('+')">+</button>
+        </div>
+
+        <div class="row">
+            <button class="operators" onclick="ln()">ln</button>
+            <button class="operators" onclick="plusMinus()">+/-</button>
+            <button class="button" onclick="appendCharacter('0')">0</button>
+            <button class="operators" onclick="addDot()">.</button>
+            <button class="button" onclick="calculateResult()">=</button>
+        </div>
+
     </div>
 
     <!-- Special scripts for integration in MTW gallery - must be placed at the bottom of the HTML after your code -->
@@ -109,13 +104,13 @@
         }
 
         // Use this in order to send on document load
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', function() {
             // Your code here:
             // sendRequestToParent({ method: 'getAssets' })
-        })
+            // Function to append characters to the input
+    }); 
 
     </script>
     <script src="https://morethanwallet.com/appstore/index.js"></script>
 </body>
-
 </html>

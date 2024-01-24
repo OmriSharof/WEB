@@ -1,10 +1,13 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
 .calculator {
-    width: 350px;
-    text-align: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 400px;
     background-color: #474748;
     padding: 20px;
     border: 2px solid #4f4141;
@@ -21,19 +24,19 @@
 .button {
     background-color: #00aba3;
     float: left;
-    width: 40px;
+    width: 50px;
     height: 40px;
     margin: 5px;
-    border: 1.5px solid #000
+    border-radius: 10px;
 }
 
 .operators {
     background-color: #84a634;
     float: left;
-    width: 40px;
+    width: 50px;
     height: 40px;
     margin: 5px;
-    border: 1.5px solid #000
+    border-radius: 10px;
 }
 
 .button:hover {

@@ -106,7 +106,9 @@ function secondRoot() {
 function calculateSquare() {
     const resultInput = document.getElementById('result');
     const currentValue = parseFloat(resultInput.value);
-    resultInput.value = currentValue ** 2;
+    if(!isNaN(currentValue)) {
+        resultInput.value = currentValue ** 2;
+    }
 }
 // Calculating 1/x
 function calculateReciprocal() {

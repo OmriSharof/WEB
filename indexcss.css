@@ -20,16 +20,18 @@
 .button {
     background-color: #00aba3;
     float: left;
-    width: 75px;
+    width: 50px;
     height: 40px;
+    margin: 5px;
     border: 1.5px solid #000
 }
 
 .operators {
     background-color: #84a634;
     float: left;
-    width: 75px;
+    width: 50px;
     height: 40px;
+    margin: 5px;
     border: 1.5px solid #000
 }
 
